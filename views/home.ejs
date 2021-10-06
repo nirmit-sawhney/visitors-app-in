@@ -1,0 +1,32 @@
+<%-include('./partials/header') %>
+<%-include('./partials/navbar') %>
+
+<main class="container">
+    <%-include('./partials/flash') %>
+    <div id="home-time">
+        <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;"><%=time%></h4>
+        <h6 class="text-muted"><%=date%></h6>
+    </div>
+    <div class="row">
+        <div class="mx-auto" id="home-logo" style="text-align: center;">
+            <h2 id="text-slider"></h2>
+            <h1 class="display-5" style="font-family: Georgia, 'Times New Roman', Times, serif;">Welcome to the</h1>
+            <span class="logo" style="font-size: 60px;">Visitor's App</span><br>
+            <%if(!user){%>
+                <a href="/login" class="btn btn-success btn-lg">Log In</a>
+            <%}else{%>
+                <div class="row ml-5">
+                    <form action="/checkin" method="POST" class="mr-2">
+                        <button type="submit" class="btn btn-success btn-small">CheckIn</button>
+                    </form>
+                    <form action="/checkout" method="POST">
+                        <button type="submit" class="btn btn-danger btn-small">Checkout</button>
+                    </form>
+                </div>
+            <%}%>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%-include('./partials/footer') %>

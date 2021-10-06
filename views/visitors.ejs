@@ -1,0 +1,17 @@
+<%-include('./partials/header') %>
+<%-include('./partials/navbar') %>
+
+<main class="container">
+    <div class="mx-auto">
+        <%for(let visitor of allvisitors){%>
+            <div>
+                <div class="card" id="visitor-card">
+                    <h3 class="card-title" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"><%=visitor.username%></h3>
+                    <h6 class="card-text">Checked In at <%=visitor.checkedin%></h6>
+                </div>
+            </div>
+        <%}%>
+    </div>
+</main>
+
+<%-include('./partials/footer') %>

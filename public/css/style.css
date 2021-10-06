@@ -1,0 +1,46 @@
+body{
+    background-color: #081C15;
+    color:white;
+}
+.logo{
+    font-family: 'Akronim', cursive;
+    letter-spacing: 2px;
+    font-size: 30px;
+    color:#94D2Bd;
+}
+#home-logo{
+    margin-top: 15vh;
+}
+#text-slider{
+    margin-bottom: 30px;
+}
+#home-time{
+    border-left: 5px solid yellow;
+    padding:0px 15px;
+    border-radius: 5px;
+}
+.nav-link:hover{
+    font-weight: bold;
+}
+#check-in-form{
+    border-radius: 10px;
+    padding:30px;
+    margin-top: 15vh;
+}
+#check-in-form form input{
+    background-color: #081C15;
+    color: white;
+}
+#visitor-card{
+    background:#94D2Bd;
+    color:black;
+    padding:16px;
+    margin-right: 10px;
+    margin-bottom:10px;
+}
+#checkout-form{
+    text-align: center;
+}
+#welcome-page{
+    margin-top: 20vh;
+}
