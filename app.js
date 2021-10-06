@@ -71,7 +71,7 @@ app.post('/signup',async(req,res)=>{
         res.redirect('/login');
     }
     catch(e){
-        req.flash('error',e.message);
+        req.flash('error',"OOPS SOMETHING WENT WRONG");
         res.redirect('/error');
     }
 });
