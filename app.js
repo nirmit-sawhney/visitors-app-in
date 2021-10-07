@@ -46,9 +46,8 @@ app.use((req,res,next)=>{
     next();
 })
 
-TZ='Asia/Calcutta'
-const currdate=date.format(new Date().toString(),"ddd, MMM DD YYYY");
-const time=date.format(new Date().toString(),"hh:mm A");
+const currdate=date.format(new Date(),"ddd, MMM DD YYYY");
+const time=date.format(new Date(),"hh:mm A");
 app.get('/',(req,res)=>{
     res.render('home',{date:currdate,time});
 });
@@ -96,7 +95,7 @@ app.post('/checkin',async(req,res)=>{
             res.redirect('/');
         }
     else{
-        const checkedin=await date.format(new Date().toString(),"ddd, MMM DD YYYY | hh:mm A");
+        const checkedin=await date.format(new Date(),"ddd, MMM DD YYYY | hh:mm A");
     await visitor.updateOne({email:email},{status:'checked-in'});
     await visitor.updateOne({email:email},{checkedin:checkedin});
     const from='nirmitsawhney01@gmail.com';
@@ -121,7 +120,7 @@ app.post('/checkout',async(req,res)=>{
             req.flash('error','You are not checked-in!!');
             res.redirect('/');
         }
-       const checkedout=await date.format(new Date().toString(),"ddd, MMM DD YYYY | hh:mm A");
+       const checkedout=await date.format(new Date(),"ddd, MMM DD YYYY | hh:mm A");
        const currVisitor=await visitor.findOne({username:username});
        await visitor.updateOne({username:username},{status:"checked-out"});
        await visitor.updateOne({username:username},{checkedout:checkedout});
@@ -134,8 +133,8 @@ app.post('/checkout',async(req,res)=>{
         const hourduration=Math.abs(outhour-inhour);
         const minduration=Math.abs(outmin-inmin);
    
-       const currdate=await date.format(new Date().toString(),"ddd, MMM DD YYYY");
-       const time=await date.format(new Date().toString(),"hh:mm A");
+       const currdate=await date.format(new Date(),"ddd, MMM DD YYYY");
+       const time=await date.format(new Date(),"hh:mm A");
        const from='nirmitsawhney01@gmail.com';
        const sub=`Hey ${currVisitor.username}!`;
        const text=`<i>Thankyou for visiting us.</i><br> You have checked-out from the Visitor\'s App on ${currdate} at ${time}. You were active for ${hourduration} hours and ${minduration} minutes. <br>Thanks and regards<br><strong>Nirmit Sawhney</strong>`;
